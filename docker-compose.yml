@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: shoestore
+      POSTGRES_PASSWORD: shoestore
+      POSTGRES_DB: shoestore
+    ports:
+      - "5432:5432"
+    volumes:
+      - shoestore_pgdata:/var/lib/postgresql/data
+
+volumes:
+  shoestore_pgdata:
